@@ -24,10 +24,10 @@ export default ({ name, position, email, linkedin, img, description, testimonial
                 <h1 className="entry-title">{name}</h1>
                 <h4>{position}</h4>
                 <div className="entry-contacts">
-                  <a href={email} target="_blank" style={{color: "black" }}>
+                  <a href={email} target="_blank" rel="noopener noreferrer" style={{color: "black" }}>
                     <FontAwesomeIcon icon={faEnvelope} size="lg" style={{margin: "10px"}}/>
                   </a>
-                  <a href={linkedin} target="_blank" style={{color: "black" }}>
+                  <a href={linkedin} target="_blank" rel="noopener noreferrer" style={{color: "black" }}>
                     <FontAwesomeIcon icon={faLinkedinIn} size="lg" style={{margin: "10px"}}/>
                   </a>
                 </div>

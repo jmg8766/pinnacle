@@ -5,7 +5,7 @@ import Leader from "../components/leader"
 import Clients from "../components/clients"
 import Footer from "../components/footer"
 
-import aboutBanner from "../images/about-banner.jpg"
+import AboutBanner from "../images/aboutbanner.jpg"
 import lynlee from "../images/lynlee-430x232.jpg"
 
 import lynleeHeadshot from "../images/lynlee-headshot.png"
@@ -20,9 +20,7 @@ const AboutPage = () => (
           <div id="content" className="site-content" role="main">
             <article id="post-8" className="post-8 page type-page status-publish has-post-thumbnail hentry">
               <div className="post-thumbnail">
-                <img src={aboutBanner}
-                     className="attachment-pinnacle-full-width size-pinnacle-full-width wp-post-image" alt=""
-                     sizes="(max-width: 4200px) 100vw, 4200px"/>
+                <img src={AboutBanner} className="attachment-pinnacle-full-width size-pinnacle-full-width wp-post-image" alt=""/>
                 <div className="shadow">
                   <span className="tagline">PINNACLE CONSTRUCTION: WE'RE EXPERTS IN THE UNUSUAL</span>
                 </div>
