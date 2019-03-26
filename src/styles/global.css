@@ -3497,10 +3497,9 @@ footer .site-info p a:hover {
     }
 }
 .home-content {
-    background: url(../images/crane.png) center no-repeat;
+    background-position: center;
     background-size: cover;
     width: 100%;
-    height: 100%;
     height: calc(100% - 49px);
 }
 .shadow .tagline {

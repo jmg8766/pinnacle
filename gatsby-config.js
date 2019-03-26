@@ -1,8 +1,6 @@
 module.exports = {
   siteMetadata: {
     title: `pinnacle`,
-    description: ``,
-    author: `Justin Gottshall`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -16,14 +14,18 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        useMozJpeg: false,
+        stripMetadata: true,
+        defaultQuality: 75,
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `pinnacle`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
