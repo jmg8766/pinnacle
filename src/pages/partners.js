@@ -8,7 +8,7 @@ import alphaport from "../images/alphaport.png"
 import teya from "../images/teya.jpg"
 
 const PartnersPage = () =>
-  <body id="partners" className="page-template page-template-_page-templates page-template-Partners page-template-_page-templatesPartners-php page page-id-69 masthead-fixed full-width footer-widgets singular post-type-archive post-type-archive-partners no-js-header">
+  <div id="partners" className="page-template page-template-_page-templates page-template-Partners page-template-_page-templatesPartners-php page page-id-69 masthead-fixed full-width footer-widgets singular post-type-archive post-type-archive-partners no-js-header">
     <div id="page-partners" className="hfeed site">
       <Header/>
       <div id="main" className="site-main">
@@ -58,7 +58,7 @@ const PartnersPage = () =>
       </div>
     </div>
     <Footer/>
-  </body>
+  </div>
 
 export default PartnersPage
 

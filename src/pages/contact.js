@@ -35,7 +35,7 @@ const ContactForm = () => {
 }
 
 export default () =>
-  <body id="contact-us" className="page-template page-template-_page-templates page-template-Contact page-template-_page-templatesContact-php page page-id-22 masthead-fixed full-width footer-widgets singular">
+  <div id="contact-us" className="page-template page-template-_page-templates page-template-Contact page-template-_page-templatesContact-php page page-id-22 masthead-fixed full-width footer-widgets singular">
     <div id="page-contact-us" className="hfeed site">
       <Header/>
       <div id="main" className="site-main">
@@ -127,4 +127,4 @@ export default () =>
       </div>
     </div>
     <Footer/>
-  </body>
+  </div>

@@ -4,7 +4,7 @@ import Header from "../components/header"
 import Footer from "../components/footer"
 
 export default () =>
-   <body id="home" className="home page-template page-template-_page-templates page-template-home page-template-_page-templateshome-php page page-id-6 masthead-fixed full-width footer-widgets grid">
+   <div id="home" className="home page-template page-template-_page-templates page-template-home page-template-_page-templateshome-php page page-id-6 masthead-fixed full-width footer-widgets grid">
      <div id="page-home" className="hfeed site">
        <Header/>
        <div id="main" className="site-main">
@@ -41,4 +41,4 @@ export default () =>
        </div>
      </div>
      <Footer/>
-   </body>
+   </div>

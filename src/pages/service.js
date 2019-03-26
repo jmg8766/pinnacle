@@ -16,7 +16,7 @@ import GCA from "../images/GSA.jpg"
 
 const ServicePage = () => {
   return (
-    <body class="archive post-type-archive post-type-archive-service masthead-fixed list-view full-width footer-widgets">
+    <div class="archive post-type-archive post-type-archive-service masthead-fixed list-view full-width footer-widgets">
       <div id="page-" className="hfeed site">
         <Header/>
         <div id="main" className="site-main">
@@ -83,7 +83,7 @@ const ServicePage = () => {
         </div>
       </div>
       <Footer/>
-    </body>
+    </div>
   )
 }
 

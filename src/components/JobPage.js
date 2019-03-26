@@ -6,13 +6,13 @@ import { Link } from "gatsby"
 import HeaderImg from "../images/pinnacle_construction_header01.png"
 
 export default ({ title, description, prev, next, children }) =>
-  <body className="career-template-default single single-career postid-171 masthead-fixed full-width footer-widgets singular">
-    <div class="hfeed site">
+  <div className="career-template-default single single-career postid-171 masthead-fixed full-width footer-widgets singular">
+    <div className="hfeed site">
       <Header/>
-      <div id="main" class="site-main">
-        <div id="main" class="site-main">
-          <div id="primary" class="content-area">
-            <div id="content" class="site-content" role="main">
+      <div id="main" className="site-main">
+        <div id="main" className="site-main">
+          <div id="primary" className="content-area">
+            <div id="content" className="site-content" role="main">
               <article id="post-171" className="post-171 career type-career status-publish hentry">
                 <div className="post-thumbnail">
                   <img src={HeaderImg} className="attachment-pinnacle-full-width wp-post-image" alt="pinnacle_construction_header01"/>
@@ -47,4 +47,4 @@ export default ({ title, description, prev, next, children }) =>
       </div>
     </div>
     <Footer/>
-  </body>
+  </div>

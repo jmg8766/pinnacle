@@ -23,7 +23,7 @@ const Job = ({ title, description, link }) =>
   </li>
 
 const CareersPage = () =>
-  <body id="careers" className="page-template page-template-_page-templates page-template-Careers page-template-_page-templatesCareers-php page page-id-78 masthead-fixed full-width footer-widgets singular post-type-archive post-type-archive-career">
+  <div id="careers" className="page-template page-template-_page-templates page-template-Careers page-template-_page-templatesCareers-php page page-id-78 masthead-fixed full-width footer-widgets singular post-type-archive post-type-archive-career">
     <div id="page-careers" className="hfeed site">
       <Header/>
       <div id="main" className="site-main">
@@ -87,6 +87,6 @@ const CareersPage = () =>
       </div>
       <Footer/>
     </div>
-  </body>
+  </div>
 
 export default CareersPage

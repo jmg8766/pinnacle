@@ -4,10 +4,10 @@ import Footer from "./footer"
 import Header from "../components/header"
 
 export default ({ img, title, children, next, prev }) =>
-  <body class="portfolio-template-default single single-portfolio postid-200 masthead-fixed full-width footer-widgets singular">
-    <div class="hfeed site">
+  <div className="portfolio-template-default single single-portfolio postid-200 masthead-fixed full-width footer-widgets singular">
+    <div className="hfeed site">
       <Header/>
-      <div id="main" class="site-main">
+      <div id="main" className="site-main">
         <div id="primary" className="content-area">
           <div id="content" className="site-content" role="main">
             <article id="post-200" className="post-200 portfolio type-portfolio status-publish has-post-thumbnail hentry">
@@ -44,4 +44,4 @@ export default ({ img, title, children, next, prev }) =>
       </div>
     </div>
     <Footer/>
-  </body>
+  </div>

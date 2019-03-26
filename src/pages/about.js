@@ -12,7 +12,7 @@ import lynleeHeadshot from "../images/lynlee-headshot.png"
 import scottHeadshot from "../images/scott-headshot.png"
 
 const AboutPage = () => (
-  <body id="about-us" className="page-template page-template-_page-templates page-template-About page-template-_page-templatesAbout-php page page-id-8 masthead-fixed full-width footer-widgets singular">
+  <div id="about-us" className="page-template page-template-_page-templates page-template-About page-template-_page-templatesAbout-php page page-id-8 masthead-fixed full-width footer-widgets singular">
     <div id="page-about-us" className="hfeed site">
       <Header/>
       <div id="main-content" className="main-content">
@@ -131,7 +131,7 @@ const AboutPage = () => (
       </div>
     </div>
     <Footer/>
-  </body>
+  </div>
 )
 
 export default AboutPage

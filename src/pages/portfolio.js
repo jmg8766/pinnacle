@@ -10,10 +10,10 @@ import Crane from "../images/crane.png"
 import Bridge from "../images/bridge.png"
 
 const PortfolioPage = () =>
-  <body class="archive post-type-archive post-type-archive-portfolio masthead-fixed list-view full-width footer-widgets">
+  <div className="archive post-type-archive post-type-archive-portfolio masthead-fixed list-view full-width footer-widgets">
     <div id="page-" className="hfeed site">
       <Header/>
-      <div id="main" class="site-main">
+      <div id="main" className="site-main">
         <section id="primary" className="content-area">
           <div id="content" className="site-content" role="main">
             <div className="post-thumbnail">
@@ -73,6 +73,6 @@ const PortfolioPage = () =>
       </div>
     </div>
     <Footer/>
-  </body>
+  </div>
 
 export default PortfolioPage
