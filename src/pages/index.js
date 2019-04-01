@@ -18,7 +18,7 @@ export default ({ data }) =>
         padding: `0`,
       }}>
         <h1 style={{ fontWeight: `bold`, fontSize: `60px`, marginBottom: `15px`, marginTop: `20%`, color: `white`}}>
-          Pinnacle Construction
+          Pinnacle Construction & Development Group, Inc.
         </h1>
         <h3 style={{ fontSize: `28px`, fontWeight: `normal`, color: `white` }}>
           WE'RE EXPERTS IN THE UNUSUAL
