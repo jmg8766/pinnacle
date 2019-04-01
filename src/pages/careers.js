@@ -1,13 +1,12 @@
 import React from "react"
+import Img from "gatsby-image"
 import { Link } from "gatsby"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import Testimonials from "../components/Testimonials"
 
-import PageHeader from "../images/constructionManUsingATablet.jpg"
 import CoreValues from "../images/color-core-values.jpg"
 import StockMan from "../images/stock-man.jpg"
-
 
 const Job = ({ title, description, link }) =>
   <li className="career-content">
@@ -22,7 +21,7 @@ const Job = ({ title, description, link }) =>
     </span>
   </li>
 
-const CareersPage = () =>
+export default ({ data }) =>
   <div id="careers" className="page-template page-template-_page-templates page-template-Careers page-template-_page-templatesCareers-php page page-id-78 masthead-fixed full-width footer-widgets singular post-type-archive post-type-archive-career">
     <div id="page-careers" className="hfeed site">
       <Header/>
@@ -32,10 +31,9 @@ const CareersPage = () =>
             <div id="content" className="site-content" role="main">
               <article id="post-78" className="post-78 page type-page status-publish has-post-thumbnail hentry">
                 <div className="post-thumbnail">
-                  <img src={PageHeader} className="attachment-pinnacle-full-width size-pinnacle-full-width wp-post-image" alt=""/>
-                    <div className="shadow">
-                      <span className="tagline">PINNACLE CONSTRUCTION: WE'RE EXPERTS IN THE UNUSUAL</span>
-                    </div>
+                  {/*<img src={PageHeader} className="attachment-pinnacle-full-width size-pinnacle-full-width wp-post-image" alt=""/>*/}
+                  <Img fluid={data.banner.childImageSharp.fluid} alt=""/>
+                  <div className="shadow"/>
                 </div>
                 <div className="entry-header"><h1 className="entry-title">Careers</h1></div>
                 <div className="entry-content">
@@ -89,4 +87,14 @@ const CareersPage = () =>
     </div>
   </div>
 
-export default CareersPage
+export const query = graphql`
+  query {
+    banner: file(relativePath: { eq: "careersbanner.jpg" }) {
+      childImageSharp {
+        fluid(quality: 100, maxHeight: 500, cropFocus: NORTH) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

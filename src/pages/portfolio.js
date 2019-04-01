@@ -9,7 +9,7 @@ import PortfolioHeader from "../images/PORTFOLIO header.jpeg"
 import Crane from "../images/crane.png"
 import Bridge from "../images/bridge.png"
 
-const PortfolioPage = () =>
+export default () =>
   <div className="archive post-type-archive post-type-archive-portfolio masthead-fixed list-view full-width footer-widgets">
     <div id="page-" className="hfeed site">
       <Header/>
@@ -18,9 +18,7 @@ const PortfolioPage = () =>
           <div id="content" className="site-content" role="main">
             <div className="post-thumbnail">
               <img src={PortfolioHeader} className="attachment-pinnacle-full-width wp-post-image" alt="pinnacle_construction_header01"/>
-              <div className="shadow">
-                <span className="tagline">PINNACLE CONSTRUCTION: WE'RE EXPERTS IN THE UNUSUAL</span>
-              </div>
+              <div className="shadow"/>
             </div>
             <div className="page-header">
               <h1 className="page-title">Portfolio</h1>
@@ -74,5 +72,3 @@ const PortfolioPage = () =>
     </div>
     <Footer/>
   </div>
-
-export default PortfolioPage

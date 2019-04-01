@@ -82,9 +82,12 @@ const ProjectTile = ({ id, img, link, title, description }) =>
       <h4>
         <Link to={link}>{title}</Link>
       </h4>
-      <div className="the-excerpt">
+      <div className="the-excerpt" style={{ fontSize: `14px` }}>
         {description}
-        <Link to={link}>View Article</Link>
+        <br/>
+        <Link to={link} rel="next" style={{ background: "#80000e", color: "white", width: "auto", maxWidth: "30%", padding: "6px 28px", textAlign: "center", borderRadius: "5px", float: `right`}}>
+          View Article
+        </Link>
       </div>
     </div>
   </li>

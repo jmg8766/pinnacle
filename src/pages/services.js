@@ -1,63 +1,102 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Img from 'gatsby-image'
+
 import Layout from "../components/layout"
-import ServiceTile from "../components/serviceTile"
 import Testimonials from "../components/Testimonials"
-import ContractVehicle from "../components/contractVehicle"
+import CompanySnapshot from "../components/companySnapshot"
 
-import SeriousMen from "../images/SERVICES header.jpeg"
-import Bulldozer from "../images/ThinkstockPhotos-474445071_web.jpg"
-import Glen from "../images/glenn_research_center.png"
-import Hardhats from "../images/hardhats.jpg"
-import Blueprints from "../images/blueprints.jpg"
-import USNG from "../images/USNG.png"
-import NASA from "../images/NASA.png"
-import GCA from "../images/GSA.jpg"
+const ServiceTile = ({img, text}) =>
+  <div className="column3" style={{
+    position: `relative`,
+    fontWeight: `bold`,
+    textAlign: `center`,
+    padding: `1vw`,
+  }}>
+    <Img fixed={img} alt="" style={{height: `333px`, width: `333px` }}/>
+    <div style={{ position: `absolute`, top: `1vw`, width: `333px` }}>
+      <h3 style={{ fontSize: `25px`, color: `white` }}>{text}</h3>
+    </div>
+  </div>
 
-export default () =>
-  <Layout img={SeriousMen} pageTitle="Services">
-    <div className="content-wrapper">
-      <ServiceTile id="service-pinnacle-earthwork" img={Bulldozer} link="/service/pinnacle-earthwork/" text="Pinnacle Earthwork"/>
-      <ServiceTile id="service-multi-award-contracts" img={Glen} link="/service/multi-award-contracts/" text="Multi-Award Contracts"/>
-      <ServiceTile id="service-construction-management" img={Hardhats} link="/service/construction-management/" text="Construction Management"/>
-      <ServiceTile id="service-design-build" img={Blueprints} link="/service/design-build/" text="Design / Build"/>
+const ContractVehicle = ({id, link, img, alt}) =>
+  <li style={{ display: `inline`, padding: `10px` }}>
+    <a href={link}>
+      <Img fixed={img} alt={alt}/>
+    </a>
+  </li>
+
+export default ({ data }) =>
+  <Layout img={data.banner.childImageSharp.fluid} title="Services">
+    <div className="row" style={{ maxWidth: `1200px`, margin: `auto` }}>
+      <ServiceTile img={data.multiAwardContracts.childImageSharp.fixed} text="Multi-Award Contracts"/>
+      <ServiceTile  img={data.constructionManagement.childImageSharp.fixed} text="Construction Management"/>
+      <ServiceTile img={data.designBuild.childImageSharp.fixed} text="Design / Build"/>
     </div>
-    <div className="contract-vehicles">
-      <div className="contract-vehicles-wrapper">
-        <h3>Contract Vehicles</h3>
-        <ul>
-          <ContractVehicle id="contract-vehicle-national-guard" img={USNG} link="http://www.nationalguard.mil/" alt="National Guard"/>
-          <ContractVehicle id="contract-vehicle-national-aeronautics-and-space-administration" img={NASA} link="http://www.nasa.gov/" alt="National Aeronautics and Space Administration"/>
-          <ContractVehicle id="contract-vehicle-u-s-general-services-administration" img={GCA} link="http://www.gsa.gov/" alt="U.S. General Services Administration"/>
-        </ul>
-      </div>
-    </div>
-    <div className="company-snapshot">
-      <div className="company-snapshot-wrapper">
-    <h3>Company Snapshot</h3>
-    <ul className="level-1">
-    <li>
-    <ul className="level-2">
-    <li><strong>BONDING CAPACITY</strong></li>
-    <li>$15 Million per project</li>
-    <li>$35 Million aggregate</li>
-    </ul>
-    <ul className="level-2">
-    <li><strong>FEDERAL ID</strong>34-1922987</li>
-    <li><strong>CAGE CODE</strong>3V7Z3</li>
-    <li><strong>DUNS</strong>146755603</li>
-    </ul>
-    </li>
-    <li>
-    <strong>NAICS Codes:</strong> 236220, 236115, 236116, 236210, 237110, 237120, 237130, 237210, 237310, 237990, 238110, 238160, 238190, 238210, 238220, 238290, 238330, 238350, 238910, 238990, 562211
-    </li>
-    </ul>
-    </div>
+    <div style={{ backgroundColor: `#d3d3d3`, textAlign: `center` }}>
+      <h3>Contract Vehicles</h3>
+      <ul style={{ maxWidth: `1000px`, width: `70%`, margin: `auto`, padding: `20px` }}>
+        <ContractVehicle img={data.usng.childImageSharp.fixed} link="http://www.nationalguard.mil/" alt="National Guard"/>
+        <ContractVehicle img={data.nasa.childImageSharp.fixed} link="http://www.nasa.gov/" alt="National Aeronautics and Space Administration"/>
+        <ContractVehicle img={data.gsa.childImageSharp.fixed} link="http://www.gsa.gov/" alt="U.S. General Services Administration"/>
+      </ul>
     </div>
     <Testimonials/>
-    <div className="past-performance-snapshot">
-      <h3>
-        <Link to="/portfolio">Past Performance Snapshot</Link>
-      </h3>
+    <div style={{ textAlign: `center` }}>
+      <h3>Company Snapshot</h3>
+      <div style={{ width: `50%`, maxWidth: `500px`, margin: `auto` }}>
+        <CompanySnapshot/>
+      </div>
     </div>
   </Layout>
+
+export const fixedImage = graphql`
+  fragment fixedImage on File {
+    childImageSharp {
+      fixed(height: 150) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+`
+
+export const query = graphql`
+  query {
+    banner: file(relativePath: { eq: "servicesbanner.jpeg" }) {
+      childImageSharp {
+        fluid(quality: 100, maxHeight: 500, cropFocus: NORTH) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    multiAwardContracts: file(relativePath: { eq: "glenn_research_center.png" }) {
+      childImageSharp {
+        fixed(height: 333, width: 333, cropFocus: CENTER) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    constructionManagement: file(relativePath: { eq: "hardhats.jpg" }) {
+      childImageSharp {
+        fixed(height: 333, width: 333, cropFocus: CENTER) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    designBuild: file(relativePath: { eq: "blueprints.jpg" }) {
+      childImageSharp {
+        fixed(height: 333, width: 333, cropFocus: CENTER) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    usng: file(relativePath: { eq: "USNG.png" }) {
+      ...fixedImage
+    }
+    nasa: file(relativePath: { eq: "NASA.png" }) {
+      ...fixedImage
+    }
+    gsa: file(relativePath: { eq: "GSA.jpg" }) {
+      ...fixedImage
+    }
+  }
+`

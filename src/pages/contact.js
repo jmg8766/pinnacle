@@ -1,8 +1,8 @@
 import React from 'react'
+import Img from "gatsby-image"
 import Header from "../components/header"
 import Footer from "../components/footer"
 
-import ContactHeader from "../images/contactUsHeader.jpg"
 import MapContainer from "../components/mapContainer"
 
 const ContactForm = () => {
@@ -34,7 +34,7 @@ const ContactForm = () => {
   )
 }
 
-export default () =>
+export default ({ data }) =>
   <div id="contact-us" className="page-template page-template-_page-templates page-template-Contact page-template-_page-templatesContact-php page page-id-22 masthead-fixed full-width footer-widgets singular">
     <div id="page-contact-us" className="hfeed site">
       <Header/>
@@ -44,10 +44,8 @@ export default () =>
             <div id="content" className="site-content" role="main">
               <article id="post-22" className="post-22 page type-page status-publish has-post-thumbnail hentry">
                 <div className="post-thumbnail">
-                  <img src={ContactHeader} className="attachment-pinnacle-full-width wp-post-image" alt="pinnacle_construction_header01"/>
-                    <div className="shadow">
-                      <span className="tagline">PINNACLE CONSTRUCTION: WE'RE EXPERTS IN THE UNUSUAL</span>
-                    </div>
+                  <Img fluid={data.banner.childImageSharp.fluid} alt="pinnacle_construction_header01" style={{ position: `relative`, top: `-6vw` }}/>
+                  <div className="shadow"/>
                 </div>
                 <section style={{ width: "90%" }}>
                   <div style={{ float: "left", width: "40%", minWidth: "400px", padding: "0", margin: "0"}}>
@@ -128,3 +126,15 @@ export default () =>
     </div>
     <Footer/>
   </div>
+
+export const query = graphql`
+  query {
+    banner: file(relativePath: { eq: "contactbanner.jpg" }) {
+      childImageSharp {
+        fluid(quality: 100, maxHeight: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
