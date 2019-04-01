@@ -1,25 +1,21 @@
 import React from 'react'
+import Img from 'gatsby-image'
 import "../styles/global.css"
 
 import Header from "./header"
 import Footer from "./footer"
 
-export default ({ img, pageTitle, children }) =>
-  <div className="archive post-type-archive post-type-archive-service masthead-fixed list-view full-width footer-widgets">
-    <div className="hfeed site">
-      <Header/>
-      <section className="content-area">
-        <div className="post-thumbnail">
-          <img className="attachment-pinnacle-full-width wp-post-image" src={img} alt="pinnacle_construction_header01"/>
-          <div className="shadow">
-            <span className="tagline">PINNACLE CONSTRUCTION: WE'RE EXPERTS IN THE UNUSUAL</span>
-          </div>
-        </div>
-        <div className="page-header">
-          <h1 className="page-title">{pageTitle}</h1>
-        </div>
-        {children}
-      </section>
+export default ({ img, title, children }) =>
+  <div style={{}}>
+    <Header/>
+    <section style={{height: `33vw`, zIndex: `-1`, overflow: `hidden` }}>
+      <Img fluid={img} style={{ position: `absolute`, width: `100%`, top: `-6vw`, zIndex: `-1` }}/>
+    </section>
+    <div style={{ backgroundColor: `white`, opacity: `1` }}>
+      <h1 style={{textAlign: `center`, marginBottom: `0`, paddingTop: `20px` }}>
+        {title}
+      </h1>
+      {children}
     </div>
     <Footer/>
   </div>
