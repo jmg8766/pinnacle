@@ -29,6 +29,10 @@ const StyledDiv = styled.div`
 const StyledH1 = styled.h1`
   color: white;
   font-size: 60px;
+  @media(max-width: 770px) {
+    font-size: 40px;
+    .notShownOnPhones { display: none; }
+  }
 `
 
 const StyledH3 = styled.h3`
@@ -40,7 +44,7 @@ export default ({ data }) =>
     <Image fluid={data.headerImg.childImageSharp.fluid} alt="crane"/>
     <StyledSection>
       <StyledDiv>
-        <StyledH1>Pinnacle Construction & Development Group, Inc</StyledH1>
+        <StyledH1>Pinnacle Construction<span className="notShownOnPhones"> & Development Group, Inc</span></StyledH1>
         <StyledH3>we're experts in the unusual</StyledH3>
       </StyledDiv>
     </StyledSection>
