@@ -1,7 +1,7 @@
 import React from "react"
 import Styled from "styled-components"
 import Img from "gatsby-image"
-import Layout, { StyledHeaderImage, StyledSection, StyledArticle} from "../components/Layout"
+import Layout, { StyledSection } from "../components/Layout"
 import { StaticQuery, graphql } from "gatsby"
 import { FaEnvelope, FaLinkedinIn } from "react-icons/fa"
 import { colors } from "../utils/presets"

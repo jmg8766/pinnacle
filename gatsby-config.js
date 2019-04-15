@@ -35,7 +35,25 @@ module.exports = {
 			resolve: `gatsby-plugin-typography`,
 			options: {
 				pathToConfigModule: `src/utils/typography`,
+				omitGoogleFont: true,
 			}
 		},
+		{
+			resolve: `gatsby-plugin-prefetch-google-fonts`,
+			options: {
+				fonts: [
+					{
+						family: `Quattrocento Sans`,
+						subsets: [`latin-ext`, `latin`],
+            variants: [`400`, `400i`, `700`],
+					},
+					{
+						family: `Work Sans`,
+						subsets: [`latin-ext`, `latin`],
+            variants: [`600`],
+					}
+				]
+			}
+		}
 	]
 }

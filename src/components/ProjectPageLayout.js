@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Styled from "styled-components"
 import Img from "gatsby-image"
-import Layout, { StyledSection, StyledArticle } from "./Layout"
+import Layout, { StyledSection } from "./Layout"
 import { colors } from "../utils/presets"
 
 const StyledImg = Styled(Img)`
