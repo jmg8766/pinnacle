@@ -1,19 +1,18 @@
 import React from "react"
-import ProjectPage from "../../components/ProjectPage"
+import ProjectPageLayout from "../../components/ProjectPageLayout"
+import { graphql } from "gatsby"
 
-import IMG from "../../images/NAVFAC.jpeg"
-
-export default () =>
-  <ProjectPage
-    img={IMG}
+export default ({ data }) =>
+  <ProjectPageLayout
+    img={data.headerImg.childImageSharp.fluid}
     title="NAVFAC Design Deconstruction, Restoration & Retention Basin"
-    next={{
-      link:"/portfolio/nasa-main-gate-phases-i-ii/",
-      title:"NASA Main Gate Phases I & II"
-    }}
     prev={{
-      link:"/portfolio/gsa-celebrezze-federal-bldg-lobby-renovation/",
-      title:"GSA Celebrezze Federal Bldg. Lobby Renovation"
+      link: "/portfolio/plum-brooks-space-power-facility/",
+      title: "NASA Plum Brook Station Space Power Facility Sewage Treatment Plant"
+    }}
+    next={{
+      link: "/portfolio/usace-access-control-point-dscc/",
+      title: "USACE Access Control Point DSCC"
     }}
   >
     <p><strong>Location:</strong> Naval Support Activity, Mechanicsburg, PA</p>
@@ -25,4 +24,12 @@ export default () =>
     <p>Over 250 trees and shrubs were planted for filtration and beautification. All vegetation was native to Pennsylvania. Landscape, seed, mulch, sidewalks and curbs were installed and the area was restored to a natural park-like setting.</p>
     <p>Additionally, this project included a full lighting replacement in Building 112 and a complete interior renovation and office upgrades in Building 113. Building 113 was originally an empty 120,000 square foot warehouse.</p>
     <p><strong>Final Contract Amount:</strong> $3.4 mil</p>
-  </ProjectPage>
+  </ProjectPageLayout>
+
+export const query = graphql`query {
+  headerImg: file(relativePath: { eq: "NAVFAC.jpeg" }) {
+    childImageSharp {
+      fluid(maxHeight: 600) { ...GatsbyImageSharpFluid_withWebp }
+    }
+  }
+}`

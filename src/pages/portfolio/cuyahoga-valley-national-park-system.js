@@ -1,21 +1,24 @@
 import React from "react"
-import ProjectPage from "../../components/ProjectPage"
+import ProjectPageLayout from "../../components/ProjectPageLayout"
+import { graphql } from "gatsby"
 
-import IMG from "../../images/bridge.png"
-
-export default () =>
-  <ProjectPage
-    img={IMG}
+export default ({ data }) =>
+  <ProjectPageLayout
+    img={data.headerImg.childImageSharp.fluid}
     title="Cuyahoga Valley National Park System"
     prev={{
-      link: "/portfolio/plum-brooks-space-power-facility/",
-      title: "NASA Plum Brook Station Space Power Facility Sewage Treatment Plant"
+      link: "/portfolio/usace-access-control-point-dscc/",
+      title: "USACE Access Control Point DSCC"
+    }}
+    next={{
+      link: "/portfolio/nasa-sarf-shipping-receiving-facility/",
+      title: "NASA SaRF (Shipping & Receiving Facility)"
     }}
   >
     <p>
       Cuyahoga Valley National Park System Rockside Boarding Area<br/>
-      TYPE OF CONSTRUCTION | Horizontal &amp; Vertical Construction<br/>
-      FINAL CONTRACT VALUE | $1.1 M
+      <strong>Type of Construction: </strong> Horizontal &amp; Vertical Construction<br/>
+      <strong>Final Contract Value: </strong> $1.1 M<br/>
     </p>
     <p>
       Cuyahoga Valley National Park updated its facility to accommodate increased utilization but also to meet sustainability goals, with special consideration to the needs of the ecosystem and energy requirements. Pinnacle installed two separate parking areas to achieve the access issues while protecting the nearby water. One parking area was constructed with permeable asphalt to ensure that unfiltered water would not run off into the river or storm sewers. A stabilized turf lot was also installed for additional parking. The parking area allows for 215 cars, a bus parking area and accessible stalls.
@@ -26,4 +29,12 @@ export default () =>
     <p>
       All additional work, including restrooms, boarding area platform and site electrical work was performed with special attention to minimizing any effects on the environment.  Pinnacle also provided all the electrical updates including LED lighting and power lines throughout the facility. Landscape restoration includes natural plantings and selective deforestation.
     </p>
-  </ProjectPage>
+  </ProjectPageLayout>
+
+export const query = graphql`query {
+  headerImg: file(relativePath: { eq: "bridge.png" }) {
+    childImageSharp {
+      fluid(maxHeight: 600) { ...GatsbyImageSharpFluid_withWebp }
+    }
+  }
+}`

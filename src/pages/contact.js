@@ -1,140 +1,123 @@
-import React from 'react'
+import React from "react"
 import Img from "gatsby-image"
-import Header from "../components/header"
-import Footer from "../components/footer"
+import Styled from "styled-components"
+import Layout, { StyledHeaderImage, StyledSection } from "../components/Layout"
 
-import MapContainer from "../components/mapContainer"
-
-const ContactForm = () => {
-  const inputStyle = {
-    width: "100%",
-    padding: "12px 10px",
-    margin: "8px 0",
-    display: "block",
-    border: "1px solid #ccc",
-    borderRadius: "4px",
-    boxSizing: "border-box"
+const StyledForm = Styled.form`
+  borderRadius: 15px;
+  padding: 20px;
+  margin: auto;
+  backgroundColor: white;
+  .fancy {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    borderRadius: 4px;
+    boxSizing: border-box;
   }
-  return (
-      <form action="https://formspree.io/justin.gottshall@gmail.com" method="POST">
-        <label>First Name</label>
-        <input type="text" name="first_name" placeholder="Your first name.." style={inputStyle}/>
-        <label>Last Name</label>
-        <input type="text" name="last_name" placeholder="Your last name.." style={inputStyle}/>
-        <label>Company Name</label>
-        <input type="text" name="company_name" placeholder="Your company's name.." style={inputStyle}/>
-        <label>Email</label>
-        <input type="email" name="_replyto" placeholder="Your Email.." style={inputStyle}/>
-        <label>Phone Number</label>
-        <input type="text" name="phone_number" placeholder="123-456-7890" style={inputStyle}/>
-        <label>Message</label>
-        <textarea name="message" style={inputStyle} placeholder="Your message.."/>
-        <input type="submit" value="submit"/>
-      </form>
-  )
-}
-
-export default ({ data }) =>
-  <div id="contact-us" className="page-template page-template-_page-templates page-template-Contact page-template-_page-templatesContact-php page page-id-22 masthead-fixed full-width footer-widgets singular">
-    <div id="page-contact-us" className="hfeed site">
-      <Header/>
-      <div id="main" className="site-main">
-        <div id="main-content" className="main-content">
-          <div id="primary" className="content-area">
-            <div id="content" className="site-content" role="main">
-              <article id="post-22" className="post-22 page type-page status-publish has-post-thumbnail hentry">
-                <div className="post-thumbnail">
-                  <Img fluid={data.banner.childImageSharp.fluid} alt="pinnacle_construction_header01" style={{ position: `relative`, top: `-6vw` }}/>
-                  <div className="shadow"/>
-                </div>
-                <section style={{ width: "90%" }}>
-                  <div style={{ float: "left", width: "40%", minWidth: "400px", padding: "0", margin: "0"}}>
-                    <h1 className="entry-title">Contact Us</h1>
-                    <div style={{ borderRadius: "15px", padding: "20px", margin: "20px", backgroundColor: "#ffffff" }}>
-                      <ContactForm/>
-                    </div>
-                  </div>
-                  <div style={{float: "left", marginTop: "36px" }}>
-                    <MapContainer/>
-                  </div>
-                </section>
-                <div style={{clear:"both"}}/>
-                <div className="entry-secondary-content">
-                  <div className="section-wrapper">
-                    <div id="content-section-2" className="entry-content">
-                      <ul>
-                        <li><strong>Headquarters</strong>
-                          <ul>
-                            <li>5755 Granger Rd.</li>
-                            <li>Cleveland, Ohio 44131</li>
-                            <li>
-                              Phone: <a href="tel:440.975.0981">440.975.0981</a>
-                            </li>
-                            <li>fax: 440.975.1015</li>
-                          </ul>
-                        </li>
-                        <li>
-                          <strong>Satellite Locations</strong>
-                          <ul>
-                            <li>OHIO Cleveland | Columbus | Dayton</li>
-                            <li>NASA Washington, D.C.</li>
-                            <li>ALASKA Anchorage</li>
-                          </ul>
-                        </li>
-                        <li>
-                          <ul>
-                            <li>
-                              <strong>DUNS Number:</strong> 146755603
-                            </li>
-                            <li>
-                              <strong>CAGE Code:</strong> 3V7Z3
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <strong>NAICS Codes:</strong>
-                          <ul>
-                            <li>236220</li>
-                            <li>237210</li>
-                            <li>238290</li>
-                            <li>236210</li>
-                            <li>238110</li>
-                            <li>238330</li>
-                            <li>236115</li>
-                            <li>238160</li>
-                            <li>238350</li>
-                            <li>236116</li>
-                            <li>238190</li>
-                            <li>238910</li>
-                            <li>237110</li>
-                            <li>238310</li>
-                            <li>238990</li>
-                            <li>237120</li>
-                            <li>238220</li>
-                            <li>562211</li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <Footer/>
-  </div>
-
-export const query = graphql`
-  query {
-    banner: file(relativePath: { eq: "contactbanner.jpg" }) {
-      childImageSharp {
-        fluid(quality: 100, maxHeight: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
+  .submit {
+    text-transform: uppercase;
   }
 `
+
+const ContactForm = () =>
+  <StyledForm action="https://formspree.io/cvacca@pinnacleconstruction.bz" method="POST">
+    <label>First Name</label>
+    <input type="text" name="first_name" placeholder="Your first name.." className="fancy"/>
+    <label>Last Name</label>
+    <input type="text" name="last_name" placeholder="Your last name.." className="fancy"/>
+    <label>Company Name</label>
+    <input type="text" name="company_name" placeholder="Your company's name.." className="fancy"/>
+    <label>Email</label>
+    <input type="email" name="_replyto" placeholder="Your Email.." className="fancy"/>
+    <label>Phone Number</label>
+    <input type="text" name="phone_number" placeholder="123-456-7890" className="fancy"/>
+    <label>Message</label>
+    <textarea name="message" placeholder="Your message.." className="fancy"/>
+    <input type="submit" value="submit" className="submit"/>
+  </StyledForm>
+
+const Container = Styled.div`
+  .left, .right {
+    float: left;
+    padding: 10px;
+  }
+  .left {
+    width: 40%;
+    minWidth: 400px;
+    padding: 0;
+    margin: 0;
+    @media(max-width: 1000px) {
+      width: 90%;
+    }
+  }
+  .right {
+    width: 60%;
+    margin: auto;
+    @media(max-width: 1000px) {
+      width: 100%;
+    }
+    div { padding: 20px; }
+    .left { width: 50%; }
+    .right { width: 50% }
+  }
+  :after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+`
+
+export default ({ data }) =>
+  <Layout>
+      <StyledHeaderImage fluid={data.headerImg.childImageSharp.fluid}/>
+      <StyledSection className="whiteBackground">
+        <Container>
+          <div className="left">
+            <h1>Contact Us</h1>
+            <ContactForm/>
+          </div>
+          <div className="right">
+            <a href="https://www.google.com/maps/place/Pinnacle+Construction+%26+Development+Group,+Inc./@41.4157359,-81.7200747,12z/data=!4m5!3m4!1s0x8830e597f3bc10e3:0x79e25246d6fc5c3a!8m2!3d41.4157249!4d-81.6500309">
+              <Img fluid={data.maps.childImageSharp.fluid} alt="map location of pinnacle"/>
+            </a>
+            <div className="left">
+              <p>
+                <strong>Headquarters</strong><br/>
+                5755 Granger Rd.<br/>
+                Cleveland, Ohio 44131<br/>
+                Phone: 440.975.0981<br/>
+                fax: 440.975.1015<br/>
+              </p>
+              <p>
+                <strong>Satellite Locations</strong><br/>
+                OHIO: Cleveland, Columbus, Dayton<br/>
+                NASA: Washington, D.C.<br/>
+                ALASKA: Anchorage<br/>
+              </p>
+            </div>
+            <div className="right">
+              <p>
+                <strong>NAICS Codes:</strong><br/>
+                236220, 236115, 236116, 236210, 237110, 237120, 237130, 237210, 237310, 237990, 238110, 238160, 238190, 238210, 238220, 238290, 238330, 238350, 238910, 238990, 562211
+              </p>
+            </div>
+          </div>
+        </Container>
+      </StyledSection>
+  </Layout>
+
+export const query = graphql`query {
+    headerImg: file(relativePath: { eq: "contactbanner.jpg" }) {
+        childImageSharp {
+            fluid(maxWidth: 1366) { ...GatsbyImageSharpFluid_withWebp }
+        }
+    },
+    maps: file(relativePath: { eq: "googleMapsScreenshot.png" }) {
+        childImageSharp {
+            fluid(maxWidth: 800) { ...GatsbyImageSharpFluid_withWebp }
+        }
+    }
+}`

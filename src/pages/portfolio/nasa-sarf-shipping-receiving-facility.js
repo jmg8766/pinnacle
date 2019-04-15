@@ -1,19 +1,14 @@
 import React from "react"
-import ProjectPage from "../../components/ProjectPage"
+import ProjectPageLayout from "../../components/ProjectPageLayout"
+import { graphql } from "gatsby"
 
-import IMG from "../../images/NASA-SaRF.jpeg"
-
-export default () =>
-  <ProjectPage
-    img={IMG}
+export default ({ data }) =>
+  <ProjectPageLayout
+    img={data.headerImg.childImageSharp.fluid}
     title="NASA SaRF (Shipping & Receiving Facility)"
     prev={{
-      link:"/portfolio/nasa-main-gate-phases-i-ii/",
-      title:"NASA Main Gate Phases I & II"
-    }}
-    next={{
-      link:"/portfolio/nps-rockside-boarding-area-parking-lot-installation-eco-system-balance/",
-      title:"NPS Rockside Boarding Area- Parking Lot Installation & Eco System Balance"
+      link: "/portfolio/cuyahoga-valley-national-park-system/",
+      title: "Cuyahoga Valley National Park System"
     }}
   >
     <p>Project Size: 12,700 square feet</p>
@@ -24,4 +19,12 @@ export default () =>
       Pinnacle helped the facility incorporate sustainability design strategies as well as energy conservation and reduction principles to achieve LEED Gold Certification. One of SaRF’s most notable features is its geothermal heating and cooling system, which helps reduce the building’s energy use by 31 percent.<br/>
       Actual Budget: $5.2 mil
     </p>
-  </ProjectPage>
+  </ProjectPageLayout>
+
+export const query = graphql`query {
+  headerImg: file(relativePath: { eq: "NASA-SaRF.jpeg" }) {
+    childImageSharp {
+      fluid(maxHeight: 600) { ...GatsbyImageSharpFluid_withWebp }
+    }
+  }
+}`

@@ -1,15 +1,18 @@
-import React from 'react'
-import ProjectPage from '../../components/ProjectPage'
+import React from "react"
+import ProjectPageLayout from "../../components/ProjectPageLayout"
+import { graphql } from "gatsby"
 
-import img from "../../images/NASA-B2.jpeg"
-
-export default () =>
-  <ProjectPage
-    img={img}
+export default ({ data }) =>
+  <ProjectPageLayout
+    img={data.headerImg.childImageSharp.fluid}
     title="NASA- B2 Test Facility Accumulator Tank Relocation"
+    prev={{
+      title: "GSA Celebrezze Federal Bldg. Lobby Renovation",
+      link: "/portfolio/gsa-celebrezze-federal-bldg-lobby-renovation/"
+    }}
     next={{
-      link: "/portfolio/gsa-potter-stewart-federal-bldg-renovation-of-judicial-rooms/",
-      title: "GSA Potter-Stewart Federal Bldg. Renovation of Judicial Rooms"
+      title: "NPS Rockside Boarding Area- Parking Lot Installation & Eco System Balance",
+      link: "/portfolio/nps-rockside-boarding-area-parking-lot-installation-eco-system-balance/"
     }}
   >
     <p>
@@ -23,5 +26,12 @@ export default () =>
     <p>
       <strong>Final Contract Amount:</strong> $496,000
     </p>
-  </ProjectPage>
+  </ProjectPageLayout>
 
+export const query = graphql`query {
+  headerImg: file(relativePath: { eq: "NASA-B2.jpeg" }) {
+    childImageSharp {
+      fluid(maxHeight: 600) { ...GatsbyImageSharpFluid_withWebp }
+    }
+  }
+}`

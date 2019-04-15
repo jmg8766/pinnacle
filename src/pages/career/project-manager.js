@@ -1,8 +1,8 @@
 import React from "react"
-import JobPage from "../../components/JobPage"
+import JobPageLayout from "../../components/JobPageLayout"
 
 export default () =>
-  <JobPage
+  <JobPageLayout
     title="Project Manager"
     prev={{
       link: "/career/site-superintendent/",
@@ -24,4 +24,4 @@ export default () =>
         </ul>
       </li>
     </ul>
-  </JobPage>
+  </JobPageLayout>
